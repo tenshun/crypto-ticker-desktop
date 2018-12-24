@@ -1,0 +1,34 @@
+buildscript {
+    dependencies {
+        classpath group: 'de.dynamicfiles.projects.gradle.plugins', name: 'javafx-gradle-plugin', version: '8.8.2'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+
+    }
+}
+apply plugin: 'java'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    compile group: 'org.clojars.edbond', name: 'talib', version: '0.5.0'
+    compile group: 'org.ta4j', name: 'ta4j-core', version: '0.12'
+    //provided group: 'javax.websocket', name: 'javax.websocket-api', version: '1.1'
+}
+
+apply plugin: 'javafx-gradle-plugin'
+
+jfx {
+    // minimal requirement for jfxJar-task
+    mainClass = 'full.qualified.nameOf.TheMainClass'
+
+    // minimal requirement for jfxNative-task
+    vendor = 'YourName'
+}
